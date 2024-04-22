@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<mavlink>
+
+    <include>development.xml</include>
+    <!-- <version>9</version> -->
+    <dialect>3</dialect>
+
+    <messages>
+        <message id="12000" name="AIRCRAFT_STATE_RAW">
+            <description>Full Aircraft State in a raw format for FDAS to save</description>
+            <field type="uint64_t" name="timestamp"               units="us"   >Timestamp</field>
+            <field type="uint8_t"  name="flight_mode"                          >Flight Mode</field>
+            <field type="uint8_t"  name="flight_task"                          >Flight Task</field>
+            <field type="int16_t"  name="rc_aileron"                           >Aileron RC Input</field>
+            <field type="int16_t"  name="rc_elevator"                          >Elevator RC Input</field>
+            <field type="uint16_t" name="rc_throttle"                          >Throttle RC Input</field>
+            <field type="int16_t"  name="rc_rudder"                            >Rudder RC Input</field>
+            <field type="float"    name="pitch_rate"              units="rad/s">Pitch Rate</field>
+            <field type="float"    name="roll_rate"               units="rad/s">Roll Rate</field>
+            <field type="float"    name="yaw_rate"                units="rad/s">Yaw Rate</field>
+            <field type="float"    name="x_accel"                 units="m/s2" >X Acceleration</field>
+            <field type="float"    name="y_accel"                 units="m/s2" >Y Acceleration</field>
+            <field type="float"    name="z_accel"                 units="m/s2" >Z Acceleration</field>
+            <field type="float"    name="pitch"                   units="deg"  >Pitch Angle</field>
+            <field type="float"    name="roll"                    units="deg"  >Roll Angle</field>
+            <field type="float"    name="barometer_pressure"      units="kPa"  >Barometer Pressure</field>
+            <field type="float"    name="static_pressure_left"    units="kPa"  >Left Static Pressure</field>
+            <field type="float"    name="static_pressure_right"   units="kPa"  >Right Static Pressure</field>
+            <field type="float"    name="dynamic_pressure_left"   units="Pa"   >Left Dynamic Pressure</field>
+            <field type="float"    name="dynamic_pressure_right"  units="Pa"   >Right Dynamic Pressure</field>
+            <field type="float"    name="angle_of_attack_left"    units="deg"  >Left Angle of Attack</field>
+            <field type="float"    name="angle_of_attack_right"   units="deg"  >Right Angle of Attack</field>
+            <field type="float"    name="angle_of_sideslip_left"  units="deg"  >Left Angle of Sideslip</field>
+            <field type="float"    name="angle_of_sideslip_right" units="deg"  >Right Angle of Sideslip</field>
+            <field type="float"    name="aileron_deflection"      units="deg"  >Aileron Deflection</field>
+            <field type="float"    name="elevator_deflection"     units="deg"  >Elevator Deflection</field>
+            <field type="float"    name="rudder_deflection"       units="deg"  >Rudder Deflection</field>
+            <field type="float"    name="airspeed"                units="m/s"  >Airspeed</field>
+            <field type="float"    name="altitude"                units="ft"   >Altitude</field>
+            <field type="uint32_t" name="flags"                                >Status Flags</field>
+        </message>
+        <!-- TODO: Add Redundant states -->
+        <message id="12010" name="GPS_RAW">
+            <description>Full GPS State in a raw format for FDAS to save</description>
+            <field type="uint64_t" name="timestamp"               units="us"   >Timestamp</field>
+            <field type="uint8_t"  name="hour"                    units="h"    >UTC Hours</field>
+            <field type="uint8_t"  name="min"                     units="min"  >UTC Minutes</field>
+            <field type="uint8_t"  name="sec"                     units="s"    >UTC Seconds</field>
+            <field type="uint8_t"  name="msec"                    units="ms"   >UTC Milliseconds</field>
+            <field type="uint8_t"  name="latitude_degrees"        units="deg"  >Latitude Degrees</field>
+            <field type="float"    name="latitude_minutes"        units="min"  >Latitude Minutes</field>
+            <field type="uint8_t"  name="NS"                                   >Latitude N/S</field>
+            <field type="uint8_t"  name="longitude_degrees"       units="deg"  >Longitude Degrees</field>
+            <field type="float"    name="longitude_minutes"       units="min"  >Longitude Minutes</field>
+            <field type="uint8_t"  name="EW"                                   >Longitude E/W</field>
+            <field type="float"    name="altitude"                units="m"    >GPS Altitude</field>
+            <field type="float"    name="vground"                 units="m/s"  >Groundspeed</field>
+            <field type="float"    name="cog"                     units="deg"  >Course Over Ground</field>
+            <field type="float"    name="vertical_velocity"       units="m/s"  >Vertical Velocity</field>
+            <field type="float"    name="horizontal_accuracy"     units="m"    >Horizontal Accuracy</field>
+            <field type="float"    name="vertical_accuracy"       units="m"    >Vertical Accuracy</field>
+            <field type="uint8_t"  name="fix"                                  >GPS Fix</field>
+            <field type="uint32_t" name="flags"                                >Status Flags</field>     <!-- TODO: Add all fields -->
+        </message>
+        <message id="12100" name="VIRTUAL_IMU">
+            <description>Virtual IMU Data</description>
+            <field type="uint64_t" name="timestamp"               units="us"   >Timestamp</field>
+            <field type="float"    name="virtual_pitch_rate"      units="rad/s">Virtual Pitch Rate</field>
+            <field type="float"    name="virtual_roll_rate"       units="rad/s">Virtual Roll Rate</field>
+            <field type="float"    name="virtual_yaw_rate"        units="rad/s">Virtual Yaw Rate</field>
+            <field type="uint32_t" name="flags"                                >Status Flags</field>
+        </message>
+        <message id="12101" name="VIRTUAL_IMU_FB">
+            <description>Virtual IMU Data feedback</description>
+            <field type="uint64_t" name="timestamp"               units="us"   >Timestamp</field>
+            <field type="float"    name="virtual_pitch_rate"      units="rad/s">Virtual Pitch Rate</field>
+            <field type="float"    name="virtual_roll_rate"       units="rad/s">Virtual Roll Rate</field>
+            <field type="float"    name="virtual_yaw_rate"        units="rad/s">Virtual Yaw Rate</field>
+            <field type="uint32_t" name="flags"                                >Status Flags</field>
+        </message>
+    </messages>
+
+</mavlink>
